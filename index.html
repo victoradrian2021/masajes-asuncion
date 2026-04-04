@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Masajes en Asunción | Spa & Bienestar Holístico</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --color-bg: #FAF9F6; /* Blanco roto / Beige muy claro */
+            --color-beige: #F0EAD6; /* Beige cálido */
+            --color-olive: #6B705C; /* Verde Oliva */
+            --color-olive-dark: #4A4E40;
+            --color-accent: #B5835A; /* Tono cálido tierra */
+            --color-text: #333333;
+            --color-text-light: #666666;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Lato', sans-serif;
+        }
+
+        /* --- RESET & BASIC --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            color: var(--color-olive-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--color-olive);
+            color: #fff;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(107, 112, 92, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--color-olive-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 112, 92, 0.4);
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- 1. HERO --- */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero h1 {
+            color: #fff;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* --- 2. SOBRE NOSOTROS --- */
+        .about-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+        }
+
+        /* --- 3. NUESTRO TERAPEUTA --- */
+        .therapist {
+            background-color: var(--color-beige);
+        }
+
+        .therapist-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .therapist-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .therapist-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .therapist-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .therapist-list {
+            list-style: none;
+        }
+
+        .therapist-list li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .therapist-list li::before {
+            content: "✔";
+            color: var(--color-accent);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* --- 4. SERVICIOS --- */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--color-olive);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- 5. BENEFICIOS --- */
+        .benefits {
+            background-color: var(--color-olive);
+            color: #fff;
+        }
+
+        .benefits h2 {
+            color: #fff;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--color-beige);
+        }
+
+        /* --- 6. CTA FINAL --- */
+        .cta-section {
+            background: linear-gradient(rgba(240, 234, 214, 0.9), rgba(240, 234, 214, 0.9)), url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        /* --- 7. CONTACTO & FOOTER --- */
+        footer {
+            background-color: var(--color-olive-dark);
+            color: #fff;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        footer h3 {
+            color: var(--color-beige);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1EBE5D;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .copyright {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #aaa;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 4.5rem; }
+            .hero p { font-size: 1.5rem; }
+            .therapist-grid { grid-template-columns: 1fr 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HERO -->
+    <header class="hero" id="inicio">
+        <div class="container">
+            <h1>Masajes en Asunción</h1>
+            <p>Relajación profunda para cuerpo, mente y espíritu</p>
+            <a href="#contacto" class="btn">Reservar una sesión</a>
+        </div>
+    </header>
+
+    <!-- 2. SOBRE NOSOTROS -->
+    <section class="section-padding text-center">
+        <div class="container">
+            <h2 class="section-title">Bienestar Integral</h2>
+            <p class="about-text">
+                Un espacio diseñado para desconectar del ritmo acelerado de la ciudad. Ofrecemos atención personalizada y un enfoque integral para ayudarte a encontrar el equilibrio perfecto, restaurar tu energía vital y alcanzar una relajación absoluta en un ambiente cálido y profesional.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. NUESTRO TERAPEUTA -->
+    <section class="section-padding therapist" id="terapeuta">
+        <div class="container therapist-grid">
+            <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Masaje relajante y aceites" class="therapist-img">
+            <div class="therapist-content">
+                <h2>Masajista Profesional & Terapeuta Holístico</h2>
+                <p>Con más de 8 años de experiencia en el campo del bienestar y la salud holística, brindo un acompañamiento amoroso y profesional para tu sanación y relajación integral.</p>
+                <ul class="therapist-list">
+                    <li>Certificado en Masoterapia Clínica</li>
+                    <li>Especialista en Técnicas Tántricas y Energéticas</li>
+                    <li>Maestro Reiki nivel III</li>
+                    <li>Formación en Terapias Holísticas</li>
+                    <li>Más de 1.000 sesiones realizadas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SERVICIOS -->
+    <section class="section-padding text-center" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestras Terapias</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Masaje Sueco</h3>
+                    <p>Relajación profunda mediante movimientos suaves y fluidos. Ideal para liberar tensiones diarias y calmar la mente.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Terapéutico</h3>
+                    <p>Enfoque profundo en áreas de dolor o tensión muscular crónica, utilizando técnicas específicas de liberación.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Tántrico</h3>
+                    <p>Conexión profunda, expansión de la energía vital y despertar sensorial en un entorno seguro y de máximo respeto.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Energético</h3>
+                    <p>Alineación de chakras e imposición de manos (Reiki) para restaurar el flujo natural de energía en tu cuerpo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. BENEFICIOS -->
+    <section class="section-padding benefits text-center">
+        <div class="container">
+            <h2 class="section-title">Beneficios de la Terapia</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌿</div>
+                    <h3>Reducir estrés</h3>
+                    <p>Disminuye los niveles de cortisol y calma la ansiedad.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🩸</div>
+                    <h3>Mejorar circulación</h3>
+                    <p>Oxigena los tejidos y acelera la recuperación muscular.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✨</div>
+                    <h3>Equilibrio energético</h3>
+                    <p>Restaura la vitalidad y la conexión cuerpo-mente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CTA FINAL -->
+    <section class="section-padding text-center cta-section">
+        <div class="container">
+            <h2>Regalate un momento de bienestar</h2>
+            <a href="#contacto" class="btn">Reservar ahora</a>
+        </div>
+    </section>
+
+    <!-- 7. CONTACTO -->
+    <footer id="contacto">
+        <div class="container">
+            <h3>Contáctanos</h3>
+            <div class="contact-info">
+                <p>📍 Ubicación: Asunción, Paraguay</p>
+                <br>
+                <!-- Reemplaza el número de abajo con el número de WhatsApp real -->
+                <a href="https://wa.me/595000000000?text=Hola,%20quisiera%20reservar%20una%20sesión%20de%20masajes." target="_blank" class="btn whatsapp-btn">
+                    📲 Reservar por WhatsApp
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Masajes en Asunción. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
